@@ -9,6 +9,24 @@
 </head>
 <body>
 	<div>
+		<h2>Microblog | 
+			<a href="/">Home</a>
+			<a href="{{ url_for('login') }}">Login</a>
+		</h2>
+		<hr>
+		<div>
+			{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul>
+					{% for message in messages %}
+						{{ message }}
+					{% endfor %}
+				</ul>
+			{% endif %}
+			{% endwith %}
+		</div>
+	</div>
+	<div>
 		{% block content %}{% endblock %}
 	</div>
 </body>
